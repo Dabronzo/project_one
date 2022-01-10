@@ -1,0 +1,40 @@
+body{
+    background-color: grey;
+    margin: 0;
+}
+
+.character{
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    position: relative;
+}
+
+.spritesheet{
+    animation: moveSpreadSheet 1s steps(8) infinite;
+    position: absolute;
+}
+
+.face_left{
+    top: -64px;
+}
+
+.face_front{
+    top: -128px;
+}
+
+.face_right{
+    top: -192px;
+
+}
+
+
+
+@keyframes moveSpreadSheet {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
