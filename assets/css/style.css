@@ -11,26 +11,34 @@ body{
 }
 
 .spritesheet{
-    animation: moveSpreadSheet 1s steps(8) infinite;
+    background: url('../images/naked_walk.png') no-repeat no-repeat;
+    background-size: 100%;
     position: absolute;
+    width: 521px;
+    height: 256px;
 }
 
-.face_left{
-    top: -64px;
+.character[facing="up"] .spritesheet{
+    background-position-y: 0px;
 }
 
-.face_front{
-    top: -128px;
+.character[facing="down"] .spritesheet{
+    background-position-y: -128px;
 }
 
-.face_right{
-    top: -192px;
-
+.character[facing="left"] .spritesheet{
+    background-position-y: -64px;
 }
 
+.character[facing="right"] .spritesheet{
+    background-position-y: -192px;
+}
 
+.character[walking="true"] .spritesheet{
+    animation: moveCharacter 0.8s steps(8) infinite;
+}
 
-@keyframes moveSpreadSheet {
+@keyframes moveCharacter {
     from {
         transform: translate3d(0px, 0, 0);
     }

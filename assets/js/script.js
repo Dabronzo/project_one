@@ -1,9 +1,10 @@
 
 var character = document.querySelector(".character");
 
-var x = 0;
-var y = 0;
+var x = 90;
+var y = 34;
 var direction = [];
+var speed = 1;
 
 const directions = {
     up: "up",
@@ -34,3 +35,27 @@ document.addEventListener("keyup", (e) => {
         direction.splice(index, 1);
     }
 })
+
+
+const caracter_movement = () => {
+
+    var held_direction = direction[0]
+    if(held_direction){
+        if(held_direction === directions.right) {x += speed;}
+        if(held_direction === directions.left) {x -= speed;}
+        if(held_direction === directions.up) {y -= speed;}
+        if(held_direction === directions.down) {y += speed;}
+        character.setAttribute("facing", held_direction)
+
+        character.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    }
+    character.setAttribute("walking", held_direction ? "true" : "false");
+}
+
+const step = () => {
+    caracter_movement();
+    window.requestAnimationFrame(() => {
+       step();
+    })
+ }
+ step(); //kick off the first step!
