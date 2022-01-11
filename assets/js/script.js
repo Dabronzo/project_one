@@ -13,11 +13,16 @@ const directions = {
     right: "right"
 }
 
+const actions ={
+    attack: "attack"
+}
+
 const keys = {
     87: directions.up,
     83: directions.down,
     65: directions.left,
-    68: directions.right
+    68: directions.right,
+    32: actions.attack
 }
 
 document.addEventListener("keydown", (e) => {
@@ -36,16 +41,27 @@ document.addEventListener("keyup", (e) => {
     }
 })
 
+const attack_movement = () => {
+    var facing = character.getAttribute("facing");
+    var sprite = document.querySelector('.spritesheet');
+    character.setAttribute("facing", facing)
+    sprite.style.background = "url('../images/BODY_animation.png') no-repeat no-repeat";
+    character.setAttribute("attack", "true");
+
+}
+
 
 const caracter_movement = () => {
 
     var held_direction = direction[0]
     if(held_direction){
+        if(held_direction === actions.attack) {attack_movement()}
         if(held_direction === directions.right) {x += speed;}
         if(held_direction === directions.left) {x -= speed;}
         if(held_direction === directions.up) {y -= speed;}
         if(held_direction === directions.down) {y += speed;}
         character.setAttribute("facing", held_direction)
+        
 
         character.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     }
