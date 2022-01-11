@@ -1,53 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
-    background-color: grey;
+    background: #333;
+    padding: 0;
     margin: 0;
-}
-
-.character{
-    width: 64px;
-    height: 64px;
     overflow: hidden;
+}
+
+.game-container{
     position: relative;
-}
-
-.spritesheet{
-    background: url('../images/naked_walk.png') no-repeat no-repeat;
-    background-size: 100%;
-    position: absolute;
-    width: 521px;
-    height: 256px;
-}
-
-
-.character[facing="up"] .spritesheet{
-    background-position-y: 0px;
-}
-
-.character[facing="down"] .spritesheet{
-    background-position-y: -128px;
-}
-
-.character[facing="left"] .spritesheet{
-    background-position-y: -64px;
-}
-
-.character[facing="right"] .spritesheet{
-    background-position-y: -194px;
-}
-
-.character[walking="true"] .spritesheet{
-    animation: animateCharacter 0.8s steps(8) infinite;
-}
-
-.character[attack="true"] .spritesheet{
-    animation: animateCharacter 0.8s steps(13) infinite;
-}
-
-@keyframes animateCharacter {
-    from {
-        transform: translate3d(0px, 0, 0);
-    }
-    to {
-        transform: translate3d(-100%, 0, 0);
-    }
+    width: 352px;
+    height: 198px;
+    margin: 0 auto;
+    margin-top: 50px;
+    outline: 1px solid white;
 }

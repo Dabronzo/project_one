@@ -1,5 +1,6 @@
 
 var character = document.querySelector(".character");
+var spritesheet = document.querySelector(".spritesheet");
 
 var x = 90;
 var y = 34;
@@ -42,11 +43,10 @@ document.addEventListener("keyup", (e) => {
 })
 
 const attack_movement = () => {
-    var facing = character.getAttribute("facing");
-    var sprite = document.querySelector('.spritesheet');
-    character.setAttribute("facing", facing)
-    sprite.style.background = "url('../images/BODY_animation.png') no-repeat no-repeat";
-    character.setAttribute("attack", "true");
+    var sprite = document.getElementById("sprite");
+    
+    sprite.style.background = "url('assets/images/bow_attack.png') no-repeat no-repeat";
+
 
 }
 
