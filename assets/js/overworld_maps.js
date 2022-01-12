@@ -2,7 +2,7 @@ class OverworldMap {
     constructor(config) {
 
         //Holds the gameObject to draw player and npc's on the screen.
-        this.gameObject = config.gameObject;
+        this.gameObjects = config.gameObjects;
 
         //Two layers (Images) will be created
         //lower layer will be the floor, tiles
@@ -11,7 +11,7 @@ class OverworldMap {
 
         this.lowerImage.src = config.lowerSrc;
 
-        this.upperImgae =  new Image();
+        this.upperImage =  new Image();
         this.upperImage.src = config.upperSrc;
     }
 
@@ -22,6 +22,23 @@ class OverworldMap {
     }
 
     drawUpperImage(ctx) {
-        ctx.drawImage(this.upperImgae, 0, 0);
+        ctx.drawImage(this.upperImage, 0, 0);
+    }
+}
+
+//Instantiating some maps here for now
+//Object to hold all the maps of the game
+window.OverworldMaps = {
+    DemoRoom: {
+        lowerSrc: "assets/images/demo_lower.png",
+        upperSrc: "assets/images/demo_upper.png",
+        gameObjects: {
+            player: new GameObject({
+                x: 0,
+                y: 4,
+                src: "assets/images/walk_skeleton.png"
+            })
+        }
+
     }
 }
