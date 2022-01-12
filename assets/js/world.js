@@ -13,9 +13,11 @@ class World {
     startGameLoop() {
         const step = () => {
 
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
             //using the map created to draw
             //upper layer:
-            this.map.drawUpperImage(this.ctx);
+            this.map.drawLowerImage(this.ctx);
 
             //Place the characters
             Object.values(this.map.gameObjects).forEach(object => {
@@ -23,7 +25,7 @@ class World {
             })
 
             //lower layer:
-            this.map.drawLowerImage(this.ctx);
+            this.map.drawUpperImage(this.ctx);
 
             requestAnimationFrame(() => {
                 step();

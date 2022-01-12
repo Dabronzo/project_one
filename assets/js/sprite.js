@@ -23,7 +23,7 @@ class Sprite {
         // Config Animations and start position
         this.animations = config.animations || {
             "idle-down": [
-                [0,2]
+                [0,0]
             ]
         }
         //to catch the current animation and setting one as default
@@ -42,21 +42,21 @@ class Sprite {
 
     //Draw method
     draw(ctx){
-        const x = this.gameObject.x * 16;
+        const x = this.gameObject.x * 16 + 8;
         const y = this.gameObject.y * 16 - 18;
 
         this.isShadowLoaded && ctx.drawImage(this.shadow,
             0, 0,
             32, 32,
             x, y,
-            64, 64
+            32, 32
             )
 
         this.isLoaded && ctx.drawImage(this.image,
             0, 0, //Start cutting
-            64, 64,//Stop cutting
+            32, 32,//Stop cutting
             x, y, // position
-            64, 64// scale
+            32, 32// scale
         )
 
     }

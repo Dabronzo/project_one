@@ -36,7 +36,7 @@ window.OverworldMaps = {
             player: new GameObject({
                 x: 0,
                 y: 4,
-                src: "assets/images/walk_skeleton.png"
+                src: "assets/images/hero.png"
             })
         }
 
